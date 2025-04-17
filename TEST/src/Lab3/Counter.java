@@ -103,6 +103,7 @@ public class Counter {
 public String toString(){
     return "Counter[count=" + this.count + ", max=" + this.max + "]";
     
+    // TEst
 }
 
 } // End of Counter class
