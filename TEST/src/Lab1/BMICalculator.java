@@ -19,7 +19,7 @@ public class BMICalculator {
                     System.out.println("Error: Weight must be positive.");
                     return; // 退出程序
                 }
-
+// 
                 // 计算 BMI
                 double bmi = weightKg / (heightM * heightM);
 
