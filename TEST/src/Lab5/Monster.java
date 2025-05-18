@@ -20,5 +20,9 @@ public class Monster {
         return this.name;
     }
 
+    public String getName(){
+        return this.name;
+    }
+
     
 }
