@@ -59,6 +59,7 @@ public class Monster {
 
         // this.getClass() 返回对象的运行时类
         // .getSimpleName() 返回类的简称 (例如 "Monster", "Dragon")
+        //这行 Java 代码的目的是获取当前对象实际运行时的类名（不包含包名），并将其存储在一个名为 classType 的字符串变量中。
         String classType = this.getClass().getSimpleName();
 
         System.out.println(this.name + ", of type " + classType + ", attacks generically: " + damage + " points damage caused.");
