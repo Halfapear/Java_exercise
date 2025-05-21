@@ -28,14 +28,14 @@ public class Dragon extends Monster{
             // 1 到 50 的伤害
             int damage = random.nextInt(MAX_FIRE_DAMAGE) + 1;
             //"Dragon"
-            String classType = this.getClass().getSimpleName()
+            String classType = this.getClass().getSimpleName();
             System.out.println(this.name + ", of type " + classType + ", attacks by breathing fire: " + damage + " points damage caused.");
             return damage ;
         }
         else {
             // 通用攻击 (调用父类 Monster 的 attack 方法)
             return super.attack();
-            
+
         }
     }
     
