@@ -5,6 +5,7 @@ import java.util.Random;
 public class Dragon extends Monster{
     private static final double FIRE_BREATH_CHANCE = 0.3; // 喷火概率常量
     private static final int MAX_FIRE_DAMAGE = 50;       // 喷火最大伤害
+    private Random randomGenerator = new Random(); // 龙自己的随机数生成器 (或者可以考虑从父类继承/传递)
 
     /**
      * Dragon 类的构造函数。
@@ -12,8 +13,18 @@ public class Dragon extends Monster{
      */
     public Dragon(String name){
         super(name);
-        // 调用父类 Monster 的构造函数
+        // 调用父类 Monster 的构造函数1
     }   
+
+    /**
+     * 构造函数：提供名字和特殊攻击概率。
+     * @param name 龙的名字
+     * @param spAttackProbability 龙的喷火概率
+     */
+    public Dragon(String name, double spAttackProbability) {
+        super(name, spAttackProbability); // 调用 Monster(String name, double spAttackProbability)
+    }
+    
     /**
      * 龙进行攻击。
      * 有 30% 的概率喷火，造成 1-50 点伤害。

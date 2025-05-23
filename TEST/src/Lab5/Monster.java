@@ -1,16 +1,43 @@
 package Lab5;
 
 import java.util.Random;
+/**
+ * Monster 类代表游戏中的一个通用怪物。
+ * 这是一个抽象类，不能被直接实例化。
+ * 每个怪物都有一个名字、特殊攻击概率，并且可以攻击和移动。
+ */
+public abstract class Monster { // 声明为抽象类
+    protected String name;
+    protected double spAttackProbability; // 特殊攻击概率
 
-public class Monster {
-    protected String name; // 怪物的名字 (protected 允许子类直接访问)
-    
-        /**
-     * Monster 类的构造函数。
+    private static final double DEFAULT_SP_ATTACK_PROBABILITY = 0.2;
+    private Random randomGenerator = new Random(); // 创建一个Random实例供类内使用
+
+    // 默认特殊攻击概率值
+    private static final double DEFAULT_SP_ATTACK_PROBABILITY = 0.2;
+
+    /**
+     * Monster 类的构造函数 (只设置名字)。
+     * 特殊攻击概率使用默认值。
      * @param name 怪物的名字
      */
-    public Monster(String name) {
+    public Monster(String name){
+        this(name, DEFAULT_SP_ATTACK_PROBABILITY);
+    }
+
+    /**
+     * Monster 类的构造函数 (设置名字和特殊攻击概率)。
+     * @param name 怪物的名字
+     * @param spAttackProbability 怪物的特殊攻击概率
+     */
+    public Monster(String name, double spAttackProbability) {
         this.name = name;
+        if (spAttackProbability >= 0.0 && spAttackProbability <= 1.0) {
+            this.spAttackProbability = spAttackProbability;
+        } else {
+            System.err.println("Warning: spAttackProbability for " + name + " (" + spAttackProbability + ") is out of range [0.0, 1.0]. Using default: " + DEFAULT_SP_ATTACK_PROBABILITY);
+            this.spAttackProbability = DEFAULT_SP_ATTACK_PROBABILITY;
+        }
     }
 
         /**
@@ -19,6 +46,15 @@ public class Monster {
      */
     public String getName() {
         return this.name;
+    }
+
+        /**
+     * 获取怪物的特殊攻击概率。
+     * @return 特殊攻击概率
+     */
+    // spAttackProbability 的 getter (如果需要从外部读取)
+    public double getSpAttackProbability() {
+        return this.spAttackProbability;
     }
 
     public void move(int direction) {
@@ -38,29 +74,33 @@ public class Monster {
         }
     }
 
-        /**
-     * 怪物进行一次通用攻击。
-     * 攻击会造成1到5点之间的随机伤害。
+    /**
+     * 怪物进行攻击。此方法是 final 的，子类不能重写。
+     * 攻击可能是特殊攻击或通用攻击，取决于 spAttackProbability。
      * @return 造成的伤害值
      */
-    public int attack() {
-        // 生成1到5之间的随机数:
-        // Math.random() -> [0.0, 1.0)
-        // Math.random() * 5 -> [0.0, 5.0)
-        // (int)(Math.random() * 5) -> 0, 1, 2, 3, 4
-        // (int)(Math.random() * 5) + 1 -> 1, 2, 3, 4, 5
-        Random random = new Random();
-        int damage = random.nextInt(5) + 1; // random.nextInt(N) 生成 0 到 N-1 的数
+    public final int attack(){
+        if(randomGenerator.nextDouble() < this.spAttackProbability){
+        //这里必须写this 方便子类用的（不过 一般都会直接写this）准确来说 就是多态性 (Polymorphism) 的体现
+            // 执行特殊攻击
+            return this.specialAttack();
+        }
+        else{
+            // 执行通用攻击
+            int damage = randomGenerator.nextInt(5) + 1; // 1 到 5 点伤害
+            String classType = this.getClass().getSimpleName();
+            System.out.println(this.name + ", of type " + classType + ", attacks generically: " + damage + " points damage caused.");
+            return damage;
 
-        // this.getClass() 返回对象的运行时类
-        // .getSimpleName() 返回类的简称 (例如 "Monster", "Dragon")
-        //这行 Java 代码的目的是获取当前对象实际运行时的类名（不包含包名），并将其存储在一个名为 classType 的字符串变量中。
-        String classType = this.getClass().getSimpleName();
-
-        System.out.println(this.name + ", of type " + classType + ", attacks generically: " + damage + " points damage caused.");
-        return damage;
+        }
     }
-    
+
+    /**
+     * 抽象方法：特殊攻击。
+     * 每个具体的怪物子类都必须实现这个方法来定义其独特的特殊攻击行为。
+     * @return 特殊攻击造成的伤害值
+     */
+    public abstract int specialAttack();
 
 
 
