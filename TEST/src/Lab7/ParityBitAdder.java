@@ -1,5 +1,10 @@
 //package Lab7;
-
+/*
+ * 编译：javac ParityBitAdder.java
+ * java ParityBitAdder 1010011 0
+ * 01010011
+ * 
+ */
 public class ParityBitAdder {
     /**
      * 主方法，程序的入口点。
@@ -55,6 +60,8 @@ public class ParityBitAdder {
      */
 
     public static String calculateParity(String sevenBitPattern, int parityType){
+        //比如像这里我不写static会发生什么 _ 那么这个方法就变成了一个 实例方法 (instance method)，而不是 静态方法 (static method)
+        //就是静态方法没法访问刚创的实例相关呗
         int onesCount = countOnes(sevenBitPattern); // 计算7位串中1的个数
         char parityBit;
         if (parityType == 0) { // 偶校验
