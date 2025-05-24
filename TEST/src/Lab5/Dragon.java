@@ -32,7 +32,7 @@ public class Dragon extends Monster{
      * @return 造成的伤害值
      */
     @Override
-    public int attack(){
+    public int specialAttack(){
         Random random = new Random();
         if (random.nextDouble() < FIRE_BREATH_CHANCE){
             //random.nextDouble(): 这个方法调用会返回一个伪随机的 double (双精度浮点数) 类型的值。这个值的范围是 [0.0, 1.0)，也就是说，它大于或等于 0.0，并且严格小于 1.0。

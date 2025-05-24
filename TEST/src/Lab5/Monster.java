@@ -10,7 +10,6 @@ public abstract class Monster { // 声明为抽象类
     protected String name;
     protected double spAttackProbability; // 特殊攻击概率
 
-    private static final double DEFAULT_SP_ATTACK_PROBABILITY = 0.2;
     private Random randomGenerator = new Random(); // 创建一个Random实例供类内使用
 
     // 默认特殊攻击概率值
