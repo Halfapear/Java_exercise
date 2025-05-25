@@ -4,6 +4,13 @@
  * java ParityBitAdder 1010011 0
  * 01010011
  * 奇偶校验的逻辑是什么 —— 比如even就是目标: 使得整个数据串（原始数据 + 校验位）中 '1' 的总个数为偶数
+ * java ParityBitAdder 1010011 1
+ * Adding odd parity to '1010011' results in the binary pattern '11010011'.
+ * 错误
+ * java ParityBitAdder 1010011
+ * java ParityBitAdder 1010211 0
+ * java ParityBitAdder 10100110 0
+ * java ParityBitAdder 1010011 2
  */
 public class ParityBitAdder {
     /**

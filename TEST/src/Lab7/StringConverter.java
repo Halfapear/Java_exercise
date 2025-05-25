@@ -2,6 +2,11 @@
  * javac StringConverter.java
  * java StringConverter "My car Goes verY FAST!"
  * Output: My*CaR*GoeS*VeRy*FaST*
+ * java StringConverter ""
+ * java StringConverter "Java Programming is FUN"
+ * java StringConverter "AEIOUYaeiouy BCDFGHJKLMNPQRSTVWXZ bcdfghjklmnpqrstvwxz 123 !@#"
+ * 错误
+ * java StringConverter "Hello" "World"
  */
 
 //package Lab7;
@@ -19,6 +24,7 @@ public class StringConverter {
             System.out.println("Usage: java StringConverter \"<input string>\"");
             System.exit(1);
         }
+        //我想先问 空字符真的占一位吗 你空格也没加 —— 算了 空格可以正常变 *
 
         String inputString = args[0];
         String convertedString = convertString(inputString);
