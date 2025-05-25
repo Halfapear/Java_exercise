@@ -15,8 +15,8 @@ public class StringConverter {
     public static void main(String[] args){
         // 1. 输入验证：检查参数数量
         if (args.length != 1) {
-            System.out.println("错误: 需要提供一个字符串参数。");
-            System.out.println("用法: java StringConverter \"<输入字符串>\"");
+            System.out.println("Error: One string argument is required.");
+            System.out.println("Usage: java StringConverter \"<input string>\"");
             System.exit(1);
         }
 

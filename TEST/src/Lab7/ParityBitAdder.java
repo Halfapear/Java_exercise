@@ -14,8 +14,8 @@ public class ParityBitAdder {
      */
     public static void main(String[] args){
         if(args.length != 2){
-            System.out.println("错误: 需要提供两个参数 (7位二进制数 和 校验类型 0或1)。");
-            System.out.println("用法: java ParityBitAdder <7位二进制串> <0|1>");
+            System.out.println("Error: Two arguments required (7-bit binary number and parity type 0 or 1).");
+            System.out.println("Usage: java ParityBitAdder <7-bit binary string> <0|1>");
             System.exit(1);// 非正常退出
         }
         String sevenBitPattern = args[0];
@@ -24,20 +24,20 @@ public class ParityBitAdder {
 
         // 2. 输入验证：检查7位二进制数格式
         if (sevenBitPattern.length() != 7) {
-            System.out.println("错误: 第一个参数必须是一个7位的二进制字符串。");
+            System.out.println("Error: The first argument must be a 7-bit binary string.");
             System.exit(1);
         }
         for (int i = 0; i < sevenBitPattern.length(); i++) {
             char c = sevenBitPattern.charAt(i);
             if (c != '0' && c != '1') {
-                System.out.println("错误: 二进制字符串只能包含 '0' 或 '1'。");
+                System.out.println("Error: Binary string can only contain '0' or '1');");
                 System.exit(1);
             }
         }
        
         // 3. 输入验证：检查校验类型
         if(!parityTypeStr.equals("0") && !parityTypeStr.equals("1")){
-            System.out.println("错误: 第二个参数 (校验类型) 必须是 0 (偶校验) 或 1 (奇校验)。");
+            System.out.println("Error: The second argument (parity type) must be 0 (even parity) or 1 (odd parity).");
             System.exit(1);
         }
 
@@ -47,8 +47,8 @@ public class ParityBitAdder {
         String result = calculateParity(sevenBitPattern, parityType);
 
         // 5. 输出结果
-        String parityDescription = (parityType == 0) ? "偶" : "奇";
-        System.out.println("为 '" + sevenBitPattern + "' 添加" + parityDescription + "校验的结果是二进制模式 '" + result + "'。");
+        String parityDescription = (parityType == 0) ? "even" : "odd";
+        System.out.println("Result of adding " + parityDescription + " parity to '" + sevenBitPattern + "' is binary pattern '" + result + "'.");
 
     }
     /**

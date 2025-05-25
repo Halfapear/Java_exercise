@@ -13,7 +13,7 @@ public class ThreeRollingDice {
         int dice1, dice2, dice3;
         int rollCount = 0;
 
-        System.out.println("开始掷骰子，目标是三个骰子都为6...");
+        System.out.println("Starting to roll the dice, aiming for three sixes...");
         do { 
             dice1 = random.nextInt(6) + 1;
             dice2 = random.nextInt(6) + 1;
@@ -24,8 +24,8 @@ public class ThreeRollingDice {
         } while (!(dice1 == 6 && dice2 == 6 && dice3 == 6));
         //ps 这个取反稍微要想一下
         // 循环结束，意味着三个骰子都为6
-        System.out.println("恭喜！三个骰子都掷出了6！");
-        System.out.println("在第 " + rollCount + " 次掷骰子时达成目标。");
-        System.out.println("最终结果: " + dice1 + ", " + dice2 + ", " + dice3);
+        System.out.println("Congratulations! Rolled three sixes!");
+        System.out.println("Achieved the goal on the " + rollCount + " roll.");
+        System.out.println("Final result: " + dice1 + ", " + dice2 + ", " + dice3);
     }
 }
