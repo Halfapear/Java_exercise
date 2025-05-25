@@ -3,7 +3,6 @@ package Lab5;
 import java.util.Random;
 
 public class Dragon extends Monster{
-    private static final double FIRE_BREATH_CHANCE = 0.3; // 喷火概率常量
     private static final int MAX_FIRE_DAMAGE = 50;       // 喷火最大伤害
     private Random randomGenerator = new Random(); // 龙自己的随机数生成器 (或者可以考虑从父类继承/传递)
 
@@ -26,28 +25,18 @@ public class Dragon extends Monster{
     }
     
     /**
-     * 龙进行攻击。
-     * 有 30% 的概率喷火，造成 1-50 点伤害。
-     * 否则，进行一次通用攻击。
-     * @return 造成的伤害值
+     * 实现 Monster 类中定义的抽象方法 specialAttack。
+     * 龙的特殊攻击是喷火。
+     * @return 喷火造成的伤害值 (1 到 50)
      */
     @Override
     public int specialAttack(){
         Random random = new Random();
-        if (random.nextDouble() < FIRE_BREATH_CHANCE){
-            //random.nextDouble(): 这个方法调用会返回一个伪随机的 double (双精度浮点数) 类型的值。这个值的范围是 [0.0, 1.0)，也就是说，它大于或等于 0.0，并且严格小于 1.0。
-            // 1 到 50 的伤害
-            int damage = random.nextInt(MAX_FIRE_DAMAGE) + 1;
-            //"Dragon"
-            String classType = this.getClass().getSimpleName();
-            System.out.println(this.name + ", of type " + classType + ", attacks by breathing fire: " + damage + " points damage caused.");
-            return damage ;
-        }
-        else {
-            // 通用攻击 (调用父类 Monster 的 attack 方法)
-            return super.attack();
-
-        }
+        // 直接执行喷火攻击的逻辑
+        int damage = random.nextInt(MAX_FIRE_DAMAGE) + 1;
+        String classType = this.getClass().getSimpleName();
+        System.out.println(this.name + ", of type " + classType + ", attacks by breathing fire: " + damage + " points damage caused.");
+        return damage;
     }
     
 }

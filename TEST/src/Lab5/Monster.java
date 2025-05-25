@@ -7,10 +7,12 @@ import java.util.Random;
  * 每个怪物都有一个名字、特殊攻击概率，并且可以攻击和移动。
  */
 public abstract class Monster { // 声明为抽象类
+    //等一下 抽象类下面还能接这么多东西吗 —— 当然可以 区别只在于两点1 不能被new（也就是实例化）2 具体类不能包含抽象方法 抽象类可以
     protected String name;
     protected double spAttackProbability; // 特殊攻击概率
 
     private Random randomGenerator = new Random(); // 创建一个Random实例供类内使用
+    //话说 这个能写public方便子类用吗 —— 技术上可以，但不推荐；看来java不喜欢一脉相承 每个类都喜欢独立 - 准确来说是高内聚 低耦合
 
     // 默认特殊攻击概率值
     private static final double DEFAULT_SP_ATTACK_PROBABILITY = 0.2;
