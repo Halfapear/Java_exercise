@@ -3,14 +3,14 @@
  * 编译：javac ParityBitAdder.java
  * java ParityBitAdder 1010011 0
  * 01010011
- * 
+ * 奇偶校验的逻辑是什么 —— 比如even就是目标: 使得整个数据串（原始数据 + 校验位）中 '1' 的总个数为偶数
  */
 public class ParityBitAdder {
     /**
      * 主方法，程序的入口点。
      * @param args 命令行参数。期望有两个参数:
      *             args[0] - 一个7位的二进制字符串。
-     *             args[1] - 一个整数，0 表示偶校验，1 表示奇校验。
+     *             args[1] - 一个整数，0 表示偶校验 even ，1 表示奇校验 odd
      */
     public static void main(String[] args){
         if(args.length != 2){
