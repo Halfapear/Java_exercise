@@ -44,6 +44,7 @@ import java.lang.Math;
         // "Salomon" 是 Troll 的禁用名，会被自动改为 "Detritus"
         monsters.add(new Troll("Salomon")); // 会被命名为 Detritus, 使用默认 spAttackProbability (0.2)
         monsters.add(new Troll("Bender", 0.15)); // Bender 有 15% 概率特殊攻击, 名字合法
+        monsters.add(new Troll("Saul"));
 
         // 初始化一个整型变量 damageDone，用于累计所有怪物造成的总伤害。
         int damageDone = 0;

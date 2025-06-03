@@ -76,4 +76,9 @@ public class Troll extends Monster{
 
     }
 
+    public int age() {
+
+        return randomGenerator.nextInt();
+    }
+
 }

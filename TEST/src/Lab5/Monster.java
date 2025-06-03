@@ -81,6 +81,7 @@ public abstract class Monster { // 声明为抽象类
      * @return 造成的伤害值
      */
     public final int attack(){
+    
         if(randomGenerator.nextDouble() < this.spAttackProbability){
         //这里必须写this 方便子类用的（不过 一般都会直接写this）准确来说 就是多态性 (Polymorphism) 的体现
             // 执行特殊攻击
