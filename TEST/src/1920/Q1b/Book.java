@@ -1,4 +1,4 @@
-package 1920.Q1b;
+//package 1920.Q1b;
 
 public class Book {
     public String title;
@@ -34,6 +34,7 @@ public class Book {
 
     @Override
     public String toString(){
-        return "BookName: " + title + "dianziban?" + (hasElectronic ? yes : no);
+        return "BookName: " + title + "dianziban?" + (hasElectronic ? "yes" : "no");
     }
+    //toString的格式只能强记啊
 }
