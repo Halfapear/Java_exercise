@@ -1,4 +1,7 @@
 package Lab8;
+
+import java.util.Scanner;
+
 /*
  * 编译：javac ParityBitAdder.java
  * java ParityBitAdder 1010011 0
@@ -108,6 +111,8 @@ public class ParityBitAdder_v2 {
      *             args[1] - 一个整数，0 表示偶校验 even ，1 表示奇校验 odd
      */
     public static void main(String[] args){
+        Scanner scanner = new Scanner(System.in);
+        /* 
         if(args.length != 2){
             System.out.println("Error: Two arguments required (7-bit binary number and parity type 0 or 1).");
             System.out.println("Usage: java ParityBitAdder <7-bit binary string> <0|1>");
@@ -115,10 +120,11 @@ public class ParityBitAdder_v2 {
         }
         String dataBits = args[0];
         String parityBitArg = args[1];
-
+*/
 
 
         //2025年6月6日14:31:05 重头戏 之前没用过的
+        //新增 我懒得写了 String parityBitArg = scanner.nextLine();
         try {
              validateDataBits(dataBits);
              int chosenParityType = validateParityBit(parityBitArg);
@@ -254,5 +260,8 @@ public class ParityBitAdder_v2 {
             }
         }
         return count;
+    }
+    finally{
+        Scanner.close();
     }
 }
